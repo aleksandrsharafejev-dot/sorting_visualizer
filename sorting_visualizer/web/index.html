@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div>
+          <p class="kicker">Academic Submission</p>
+          <h1>Sorting Visualizer</h1>
+          <p class="subtitle">
+            An interactive demonstration of classic sorting algorithms with live
+            metrics and customizable animation.
+          </p>
+        </div>
+        <div class="hero-card">
+          <div class="stat">
+            <span class="stat-label">Algorithm</span>
+            <span id="statAlgorithm" class="stat-value">Quick Sort</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Array Size</span>
+            <span id="statSize" class="stat-value">60</span>
+          </div>
+          <div class="stat">
+            <span class="stat-label">Speed</span>
+            <span id="statSpeed" class="stat-value">30 ms</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="panel">
+          <h2>Controls</h2>
+          <div class="control-group">
+            <label for="algorithm">Algorithm</label>
+            <select id="algorithm">
+              <option>Bubble Sort</option>
+              <option selected>Quick Sort</option>
+              <option>Merge Sort</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="size">Array size</label>
+            <input id="size" type="range" min="20" max="180" value="60" />
+            <div class="control-meta"><span id="sizeValue">60</span> elements</div>
+          </div>
+
+          <div class="control-group">
+            <label for="speed">Animation speed</label>
+            <input id="speed" type="range" min="5" max="120" value="30" />
+            <div class="control-meta"><span id="speedValue">30</span> ms per step</div>
+          </div>
+
+          <div class="control-group">
+            <label for="range">Value range</label>
+            <div class="range-row">
+              <label class="sr-only" for="minValue">Minimum value</label>
+              <input id="minValue" type="number" min="1" max="200" value="5" />
+              <span>to</span>
+              <label class="sr-only" for="maxValue">Maximum value</label>
+              <input id="maxValue" type="number" min="20" max="400" value="100" />
+            </div>
+          </div>
+
+          <div class="buttons">
+            <button id="randomize" class="secondary">Randomize</button>
+            <button id="start" class="primary">Start</button>
+            <button id="stop" class="ghost">Stop</button>
+            <button id="export" class="ghost">Export PNG</button>
+          </div>
+        </section>
+
+        <section class="visual">
+          <div class="canvas-wrap">
+            <canvas id="canvas" width="960" height="420"></canvas>
+          </div>
+          <div class="metrics">
+            <div class="metric">
+              <span class="metric-label">Comparisons</span>
+              <span id="comparisons" class="metric-value">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Swaps</span>
+              <span id="swaps" class="metric-value">0</span>
+            </div>
+            <div class="metric">
+              <span class="metric-label">Elapsed</span>
+              <span id="elapsed" class="metric-value">0.00 s</span>
+            </div>
+          </div>
+          <div class="legend">
+            <span><em class="legend-swatch compare"></em> Compare</span>
+            <span><em class="legend-swatch swap"></em> Swap</span>
+            <span><em class="legend-swatch sorted"></em> Sorted</span>
+          </div>
+        </section>
+      </main>
+
+      <section class="about">
+        <h2>Project Summary</h2>
+        <p>
+          This project visualizes the internal mechanics of three fundamental
+          sorting algorithms. Users can tune input size and animation speed to
+          study how algorithmic complexity affects runtime and the number of
+          operations performed.
+        </p>
+        <ul>
+          <li>Bubble Sort demonstrates quadratic behavior through repeated swaps.</li>
+          <li>Quick Sort highlights divide-and-conquer partitioning.</li>
+          <li>Merge Sort emphasizes stable merging and recursion depth.</li>
+        </ul>
+      </section>
+
+      <section class="theory">
+        <h2>Algorithmic Complexity</h2>
+        <div class="theory-grid">
+          <article>
+            <h3>Bubble Sort</h3>
+            <p>Best: O(n) — already sorted input.</p>
+            <p>Average/Worst: O(n^2) comparisons and swaps.</p>
+          </article>
+          <article>
+            <h3>Quick Sort</h3>
+            <p>Average: O(n log n) with good pivot selection.</p>
+            <p>Worst: O(n^2) when partitions are highly unbalanced.</p>
+          </article>
+          <article>
+            <h3>Merge Sort</h3>
+            <p>Always O(n log n) comparisons.</p>
+            <p>Requires O(n) extra memory for merging.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
