@@ -2,7 +2,7 @@
 
 This project implements and visualizes several fundamental sorting algorithms in Python.
 
-The program generates a random array and displays the sorting process step by step using graphical visualization.
+The visualizations can be opened through the provided index.html file in the project.
 
 ## Concepts Covered
 
